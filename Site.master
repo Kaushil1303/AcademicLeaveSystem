@@ -1,0 +1,38 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Academic Calendar & Leave Management</title>
+    <style>
+        body { font-family: Segoe UI, Arial; margin: 0; background: #f4f6f9; }
+        .header { background: #1f3a5f; color: #fff; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav a { color: #fff; margin-right: 16px; text-decoration: none; font-weight: 600; }
+        .nav a:hover { text-decoration: underline; }
+        .content { padding: 24px; max-width: 1000px; margin: auto; }
+        .card { background: #fff; padding: 18px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.15); margin-bottom: 18px; }
+        .msg { font-weight: 600; }
+        .footer { text-align: center; color: #666; font-size: 12px; padding: 12px; }
+        input[type=submit], .btn { background: #1f3a5f; color: #fff; border: 0; padding: 7px 16px; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div class="header">
+        <div class="nav">
+            <a href="AcademicCalendar.aspx">Academic Calendar</a>
+            <a href="ApplyLeave.aspx">Apply Leave</a>
+            <a href="MyLeaves.aspx">My Leaves</a>
+            <asp:HyperLink ID="lnkApprove" runat="server" NavigateUrl="~/Approve.aspx" Visible="false">Approve Leaves</asp:HyperLink>
+        </div>
+        <div>
+            <asp:Label ID="lblUser" runat="server" />
+            &nbsp;<asp:LinkButton ID="lnkLogout" runat="server" ForeColor="White" OnClick="lnkLogout_Click" CausesValidation="false">Logout</asp:LinkButton>
+        </div>
+    </div>
+    <div class="content">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    <div class="footer"><asp:Label ID="lblLastVisit" runat="server" /></div>
+</form>
+</body>
+</html>
